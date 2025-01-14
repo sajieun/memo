@@ -37,4 +37,9 @@ public class MemoController {
     public Long deleteMemo(@PathVariable Long id) {
         return memoService.deleteMemo(id);
     }
+
+    @GetMapping("/memos/contents/{keyword}")
+    public List<MemoResponseDto> getMemosByKeyword(@PathVariable String keyword) {
+        return memoService.getKeyWords(keyword);
+    }
 }

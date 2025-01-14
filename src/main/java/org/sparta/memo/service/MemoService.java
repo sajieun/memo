@@ -18,6 +18,10 @@ public class MemoService {
         this.memoRepository = memoRepository;
     }
 
+    public List<MemoResponseDto> getKeyWords(String keyword) {
+        return memoRepository.findByContentsContaining(keyword).stream().map(MemoResponseDto::new).toList();
+    }
+
     public MemoResponseDto createMemo(MemoRequestDto requestDto) {
         // RequestDto -> Entity
         Memo memo = new Memo(requestDto);
