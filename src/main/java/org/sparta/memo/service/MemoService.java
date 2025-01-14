@@ -21,9 +21,10 @@ public class MemoService {
     public MemoResponseDto createMemo(MemoRequestDto requestDto) {
         // RequestDto -> Entity
         Memo memo = new Memo(requestDto);
-
+        System.out.println(memo);
         // DB 저장
         Memo saveMemo = memoRepository.save(memo);
+        System.out.println("2"+memo);
 
         // Entity -> ResponseDto
         MemoResponseDto memoResponseDto = new MemoResponseDto(saveMemo);
